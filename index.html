@@ -160,21 +160,21 @@
           <form class="form-grid" id="family-settings-form" novalidate>
             <div class="field">
               <label for="due-date">預產日期（選填）</label>
-              <input id="due-date" name="dueDate" type="date">
-              <small>有填寫時，以 40 週方式提供整理用估算。</small>
-              <p class="field-error" id="due-date-error"></p>
+              <input id="due-date" name="dueDate" type="date" aria-describedby="due-date-help due-date-error" aria-invalid="false">
+              <small id="due-date-help">有填寫時，以 40 週方式提供整理用估算。</small>
+              <p class="field-error" id="due-date-error" role="alert"></p>
             </div>
             <div class="field">
               <label for="reference-date">孕週基準日</label>
-              <input id="reference-date" name="referenceDate" type="date" value="2026-09-02" required>
+              <input id="reference-date" name="referenceDate" type="date" value="2026-09-02" required aria-describedby="due-date-error" aria-invalid="false">
             </div>
             <div class="field">
               <label for="pregnancy-week">基準孕週</label>
-              <input id="pregnancy-week" name="pregnancyWeek" type="number" min="0" max="42" value="32" required>
+              <input id="pregnancy-week" name="pregnancyWeek" type="number" min="0" max="42" value="32" required aria-describedby="due-date-error" aria-invalid="false">
             </div>
             <div class="field">
               <label for="pregnancy-day">加計天數</label>
-              <select id="pregnancy-day" name="pregnancyDay">
+              <select id="pregnancy-day" name="pregnancyDay" aria-describedby="due-date-error" aria-invalid="false">
                 <option value="0">0 天</option>
                 <option value="1">1 天</option>
                 <option value="2">2 天</option>
@@ -250,7 +250,8 @@
                 <option value="pregnancy">孕期</option>
                 <option value="birth">生產</option>
                 <option value="under-2" selected>未滿二歲</option>
-                <option value="age-2-5">二至未滿五歲</option>
+                <option value="age-2-3">二至未滿三歲</option>
+                <option value="age-3-5">三至未滿五歲</option>
                 <option value="age-5">五歲至入國小前</option>
                 <option value="family">全家與租稅</option>
               </select>
@@ -351,7 +352,7 @@
         <form class="cost-form-grid" id="cost-form" novalidate>
           <div class="field">
             <label for="cost-title">項目名稱</label>
-            <input id="cost-title" name="title" maxlength="60" required placeholder="例如：準公共保母">
+            <input id="cost-title" name="title" maxlength="60" required placeholder="例如：準公共保母" aria-describedby="cost-form-error" aria-invalid="false">
           </div>
           <div class="field">
             <label for="cost-child">對象</label>
@@ -371,7 +372,7 @@
           </div>
           <div class="field">
             <label for="cost-expense">支出</label>
-            <input id="cost-expense" name="expense" inputmode="numeric" min="0" type="number" required>
+            <input id="cost-expense" name="expense" inputmode="numeric" min="0" type="number" required aria-describedby="cost-form-error" aria-invalid="false">
           </div>
           <div class="field">
             <label for="cost-subsidy">實際補助</label>
@@ -379,7 +380,7 @@
           </div>
           <button class="button" type="submit">加入花費</button>
         </form>
-        <p class="field-error" id="cost-form-error"></p>
+        <p class="field-error" id="cost-form-error" role="alert"></p>
         <div class="cost-layout">
           <div>
             <h3>已記錄項目</h3>

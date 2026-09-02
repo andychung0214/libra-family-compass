@@ -14,6 +14,14 @@ export function formatMoney(value) {
   return `NT$${money.format(value)}`;
 }
 
+export function formatPregnancyProgress(progress) {
+  if (!progress.valid) return { value: '待設定', suffix: '' };
+  return {
+    value: String(progress.week),
+    suffix: `週 + ${progress.day} 天`,
+  };
+}
+
 const statusLabels = {
   likely: '初步符合',
   check: '需要確認',
@@ -90,9 +98,11 @@ export function renderPregnancy(progress, milestones, signs, root = document) {
   const upcomingTasks = root.querySelector('#upcoming-tasks');
 
   if (weekElement) {
-    weekElement.textContent = progress.valid
-      ? `${progress.week} 週 + ${progress.day} 天`
-      : '待設定';
+    const label = formatPregnancyProgress(progress);
+    weekElement.replaceChildren(document.createTextNode(label.value));
+    if (label.suffix) {
+      weekElement.append(createElement('span', { text: label.suffix }));
+    }
   }
   if (noteElement) {
     noteElement.textContent = progress.valid

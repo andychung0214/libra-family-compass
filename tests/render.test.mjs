@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   checklistProgress,
+  formatPregnancyProgress,
   formatMoney,
   makeTextModel,
   nextTheme,
@@ -15,6 +16,17 @@ test('使用者輸入保持為文字而不是標記', () => {
 
 test('花費金額明確標示為新臺幣', () => {
   assert.equal(formatMoney(20000), 'NT$20,000');
+});
+
+test('孕週數字與單位可分開套用視覺層級', () => {
+  assert.deepEqual(formatPregnancyProgress({ valid: true, week: 32, day: 1 }), {
+    value: '32',
+    suffix: '週 + 1 天',
+  });
+  assert.deepEqual(formatPregnancyProgress({ valid: false }), {
+    value: '待設定',
+    suffix: '',
+  });
 });
 
 test('清單進度處理空清單與部分完成', () => {

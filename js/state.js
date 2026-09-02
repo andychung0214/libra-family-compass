@@ -43,3 +43,9 @@ export function createState(initialState, persistence) {
     },
   };
 }
+
+export function clearPersistedState(store, persistence, cleanState) {
+  if (cleanState) store.update(cleanState);
+  else store.reset();
+  return persistence.removeAll();
+}

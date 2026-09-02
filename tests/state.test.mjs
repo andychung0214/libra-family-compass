@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createState } from '../js/state.js';
+import { clearPersistedState, createState } from '../js/state.js';
 
 test('更新不可變狀態、通知訂閱者並保存', () => {
   const saved = [];
@@ -41,4 +41,18 @@ test('重設狀態會通知並保存初始值', () => {
 
   assert.equal(store.getState().theme, 'wine-red');
   assert.equal(saved.at(-1)[1].theme, 'wine-red');
+});
+
+test('清除本站資料後不會把預設狀態重新留在儲存空間', () => {
+  const calls = [];
+  const store = createState(
+    { theme: 'london-blue' },
+    { save: () => calls.push('save') },
+  );
+  const persistence = { removeAll: () => calls.push('remove') };
+
+  clearPersistedState(store, persistence, { theme: 'wine-red' });
+
+  assert.deepEqual(calls, ['save', 'remove']);
+  assert.equal(store.getState().theme, 'wine-red');
 });

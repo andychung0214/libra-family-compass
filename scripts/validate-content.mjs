@@ -31,7 +31,7 @@ if (pkg.name !== 'libra-family-compass' || pkg.type !== 'module') {
   throw new Error('package.json 專案識別或模組設定不正確');
 }
 
-const validStatuses = new Set(['current', 'conditional', 'upcoming']);
+const validStatuses = new Set(['current', 'conditional', 'scheduled']);
 for (const benefit of benefits) {
   if (!benefit.id || !benefit.title || !benefit.summary) {
     throw new Error('補助缺少識別、名稱或摘要');

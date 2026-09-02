@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { benefits } from '../js/data/benefits.js';
+import { filterBenefits } from '../js/eligibility.js';
 
 const requiredIds = [
   'prenatal-checkups',
@@ -55,4 +57,24 @@ test('第二名子女的核心金額符合官方資料', () => {
   assert.equal(parenting.amount.tiers[2], 6000);
   assert.equal(award.amount.tiers[2], 45000);
   assert.equal(quasiPublic.amount.tiers[2], 14000);
+});
+
+test('每個年齡階段皆可由首頁選取', async () => {
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  const selectableStages = new Set(
+    [...html.matchAll(/<option value="([^"]+)"/g)].map((match) => match[1]),
+  );
+  for (const stage of new Set(benefits.flatMap((benefit) => benefit.stages))) {
+    assert.ok(selectableStages.has(stage), `首頁缺少 ${stage} 階段`);
+  }
+});
+
+test('二至三歲可同時看到托育與育兒津貼，三至五歲不顯示托嬰補助', () => {
+  const ageTwo = filterBenefits(benefits, { stage: 'age-2-3' }).map(({ id }) => id);
+  const ageThree = filterBenefits(benefits, { stage: 'age-3-5' }).map(({ id }) => id);
+
+  assert.ok(ageTwo.includes('public-childcare-subsidy'));
+  assert.ok(ageTwo.includes('age-2-to-5-parenting-allowance'));
+  assert.ok(ageThree.includes('age-2-to-5-parenting-allowance'));
+  assert.ok(!ageThree.includes('public-childcare-subsidy'));
 });

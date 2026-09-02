@@ -27,7 +27,7 @@ import {
   renderPregnancy,
   renderSources,
 } from './render.js';
-import { createState } from './state.js';
+import { clearPersistedState, createState } from './state.js';
 import { createStorage } from './storage.js';
 
 const TODAY = new Date();
@@ -84,7 +84,7 @@ function sanitiseLoadedState(value) {
   const categories = new Set(hospitalBagCategories.map(({ id }) => id));
   const knownItems = new Set(hospitalBagItems.map(({ id }) => id));
   const careModes = new Set(['undecided', 'home', 'public', 'community', 'quasi-public', 'non-quasi-public']);
-  const stages = new Set(['all', 'pregnancy', 'birth', 'under-2', 'age-2-5', 'age-5', 'family']);
+  const stages = new Set(['all', 'pregnancy', 'birth', 'under-2', 'age-2-3', 'age-3-5', 'age-5', 'family']);
   const customItems = Array.isArray(checklist.customItems)
     ? checklist.customItems.slice(0, 100).flatMap((item) => {
       if (!item || typeof item !== 'object') return [];
@@ -177,6 +177,12 @@ function setFormValue(form, name, value) {
   if (field && field.value !== String(value ?? '')) field.value = String(value ?? '');
 }
 
+function setAriaInvalid(form, names, invalid) {
+  for (const name of names) {
+    form.elements.namedItem(name)?.setAttribute('aria-invalid', String(invalid));
+  }
+}
+
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
   const nextLabel = theme === 'wine-red' ? '倫敦藍' : '酒紅色';
@@ -253,9 +259,18 @@ elements.familyForm.addEventListener('submit', (event) => {
     pregnancyDay: Number(formData.get('pregnancyDay')),
   };
   const progress = calculatePregnancyProgress(family, TODAY);
+  setAriaInvalid(
+    elements.familyForm,
+    ['dueDate', 'referenceDate', 'pregnancyWeek', 'pregnancyDay'],
+    false,
+  );
   if (!progress.valid) {
     elements.dueDateError.textContent = '請確認日期與孕週；估算範圍為第 0 至 42 週。';
-    elements.dueDateError.focus?.();
+    const invalidNames = family.dueDate
+      ? ['dueDate']
+      : ['referenceDate', 'pregnancyWeek', 'pregnancyDay'];
+    setAriaInvalid(elements.familyForm, invalidNames, true);
+    elements.familyForm.elements.namedItem(invalidNames[0])?.focus();
     return;
   }
   elements.dueDateError.textContent = '';
@@ -344,8 +359,11 @@ elements.costForm.addEventListener('submit', (event) => {
   const title = String(formData.get('title') ?? '').trim().slice(0, 60);
   const expense = normaliseMoney(formData.get('expense'));
   const subsidy = normaliseMoney(formData.get('subsidy'));
+  setAriaInvalid(elements.costForm, ['title'], !title);
+  setAriaInvalid(elements.costForm, ['expense'], !expense);
   if (!title || !expense) {
     elements.costError.textContent = '請輸入項目名稱與大於 0 的支出。';
+    elements.costForm.elements.namedItem(!title ? 'title' : 'expense')?.focus();
     return;
   }
   elements.costError.textContent = '';
@@ -374,8 +392,7 @@ elements.costEntries.addEventListener('click', (event) => {
 
 elements.clearAll.addEventListener('click', () => {
   if (!window.confirm('確定清除這台裝置儲存的家庭設定、清單與花費？')) return;
-  persistence.removeAll();
-  store.reset();
+  clearPersistedState(store, persistence, defaultState);
   announce('本站在這台裝置的資料已清除。');
 });
 

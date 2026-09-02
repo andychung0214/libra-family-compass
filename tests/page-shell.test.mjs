@@ -28,6 +28,14 @@ test('頁面提供可存取控制項與 ES Module 入口', () => {
   assert.doesNotMatch(html, /(?:href|src)="\/(?!\/)/);
 });
 
+test('表單錯誤與欄位建立無障礙關聯', () => {
+  assert.match(html, /id="due-date"[^>]+aria-describedby="due-date-help due-date-error"/);
+  assert.match(html, /id="due-date-error" role="alert"/);
+  assert.match(html, /id="cost-title"[^>]+aria-describedby="cost-form-error"/);
+  assert.match(html, /id="cost-expense"[^>]+aria-describedby="cost-form-error"/);
+  assert.match(html, /id="cost-form-error" role="alert"/);
+});
+
 test('待產包具有六種家庭情境分類與唯一識別', () => {
   const categories = new Set(hospitalBagItems.map(({ category }) => category));
   assert.deepEqual(
