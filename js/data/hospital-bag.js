@@ -1,0 +1,48 @@
+export const hospitalBagCategories = [
+  { id: 'documents', label: '證件與醫療資料', index: 'A' },
+  { id: 'mom', label: '媽媽住院用品', index: 'B' },
+  { id: 'baby', label: '女兒返家用品', index: 'C' },
+  { id: 'partner', label: '陪產者準備', index: 'D' },
+  { id: 'older-child', label: '大寶照顧交接', index: 'E' },
+  { id: 'home', label: '出院與返家', index: 'F' },
+];
+
+export const hospitalBagItems = [
+  { id: 'parents-id', category: 'documents', title: '配偶雙方身分證', description: '辦理住院、出生相關文件時備用。', essential: true },
+  { id: 'health-card', category: 'documents', title: '產婦健保卡', description: '就醫與住院報到使用。', essential: true },
+  { id: 'maternal-handbook', category: 'documents', title: '孕婦健康手冊', description: '包含產檢紀錄與衛教資料。', essential: true },
+  { id: 'prenatal-records', category: 'documents', title: '院所要求的產檢資料', description: '非同一院所生產時先確認需要的檢查報告。', essential: true },
+  { id: 'seal-and-account', category: 'documents', title: '印章與帳戶資料', description: '依院所及出生後申辦需求攜帶，不在網站記錄內容。', essential: false },
+  { id: 'birth-plan', category: 'documents', title: '生產計畫與聯絡清單', description: '記下醫院、陪產者與緊急聯絡方式，避免輸入網站。', essential: false },
+  { id: 'mom-clothes', category: 'mom', title: '寬鬆換洗與出院衣物', description: '選擇方便穿脫、適合產後身體狀況的衣物。', essential: true },
+  { id: 'nursing-bra', category: 'mom', title: '哺乳內衣與溢乳墊', description: '依餵養規劃及個人需求準備。', essential: false },
+  { id: 'maternity-pads', category: 'mom', title: '產墊與產婦衛生用品', description: '先詢問院所提供品項與建議數量。', essential: true, confirmWithHospital: true },
+  { id: 'disposable-underwear', category: 'mom', title: '免洗內褲', description: '選擇透氣、尺寸舒適的款式。', essential: false },
+  { id: 'toiletries', category: 'mom', title: '盥洗與清潔用品', description: '牙刷、牙膏、毛巾與個人保養用品。', essential: false },
+  { id: 'slippers', category: 'mom', title: '止滑拖鞋與保暖襪', description: '以安全、好穿脫為優先。', essential: false },
+  { id: 'phone-charger', category: 'mom', title: '手機與充電線', description: '可準備較長的充電線。', essential: false },
+  { id: 'baby-wrap', category: 'baby', title: '包巾', description: '依季節準備一至兩件。', essential: true },
+  { id: 'baby-clothes', category: 'baby', title: '女兒出院衣物', description: '包含紗布衣或包屁衣及外層衣物。', essential: true },
+  { id: 'baby-hat-socks', category: 'baby', title: '帽子與襪子', description: '依氣溫及院所建議使用。', essential: false },
+  { id: 'newborn-diapers', category: 'baby', title: '新生兒尿布', description: '先詢問院所是否提供及建議數量。', essential: false, confirmWithHospital: true },
+  { id: 'car-seat', category: 'baby', title: '後向式嬰兒安全座椅', description: '出院前依產品說明正確安裝於車輛後座。', essential: true },
+  { id: 'partner-clothes', category: 'partner', title: '陪產者換洗與保暖衣物', description: '依院所陪病與夜間規則準備。', essential: false },
+  { id: 'partner-meals', category: 'partner', title: '飲水與簡單補給', description: '遵守待產區飲食規定。', essential: false },
+  { id: 'hospital-route', category: 'partner', title: '確認醫院路線與停車', description: '至少準備主要與備用交通方式。', essential: true },
+  { id: 'admission-call', category: 'partner', title: '確認待產聯絡方式', description: '保存產房或急診聯絡方式於手機。', essential: true },
+  { id: 'older-child-caregiver', category: 'older-child', title: '確認大寶照顧者', description: '約定接送、住宿及緊急聯絡安排。', essential: true },
+  { id: 'older-child-bag', category: 'older-child', title: '準備大寶過夜包', description: '衣物、盥洗、常用藥品與安撫物品。', essential: true },
+  { id: 'older-child-schedule', category: 'older-child', title: '交接幼兒園與日常作息', description: '提供接送、飲食、睡眠與重要聯絡資訊。', essential: false },
+  { id: 'sibling-talk', category: 'older-child', title: '和哥哥說明臨時安排', description: '用五歲孩子能理解的方式說明誰會陪伴他。', essential: false },
+  { id: 'safe-sleep-space', category: 'home', title: '完成安全睡眠空間', description: '使用平坦、穩固且無鬆軟物品的嬰兒睡眠環境。', essential: true },
+  { id: 'feeding-supplies', category: 'home', title: '確認餵養用品', description: '依哺乳與醫療人員建議準備，不必過量囤貨。', essential: false },
+  { id: 'postpartum-transport', category: 'home', title: '安排出院交通', description: '確認安全座椅、接送者與預估時間。', essential: true },
+  { id: 'postpartum-support', category: 'home', title: '安排產後支援', description: '分配餐食、家務、大寶陪伴與媽媽休息。', essential: true },
+];
+
+export const hospitalBagSource = {
+  issuer: '衛生福利部國民健康署',
+  title: '孕媽咪衛教手冊：生產準備中',
+  url: 'https://www.hpa.gov.tw/Pages/EBook.aspx?nodeid=4839',
+  verifiedAt: '2026-09-03',
+};

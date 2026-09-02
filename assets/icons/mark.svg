@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">秤心育兒指南標誌</title>
+  <desc id="desc">由家庭三個節點與平衡線組成的抽象圖章</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25">
+    <path d="M32 11v38M18 20h28M24 20l-8 16h16l-8-16ZM40 20l-8 16h16l-8-16Z"/>
+    <path d="M22 52h20"/>
+    <circle cx="32" cy="11" r="3" fill="currentColor" stroke="none"/>
+  </g>
+</svg>

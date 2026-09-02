@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="wine-red">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#722f45">
+  <meta name="description" content="整理孕期提醒、待產包、臺北市育兒補助、托育選擇與兩名子女家庭花費。">
+  <title>秤心育兒指南｜臺北孕產與育兒補助整理</title>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/styles/tokens.css">
+  <link rel="stylesheet" href="./assets/styles/base.css">
+  <link rel="stylesheet" href="./assets/styles/components.css">
+  <link rel="stylesheet" href="./assets/styles/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至主要內容</a>
+
+  <header class="site-header">
+    <div class="utility-strip">
+      <div class="shell">
+        <p>資料查核 <time datetime="2026-09-03">2026.09.03</time></p>
+        <p>家庭整理工具・非政府機關網站</p>
+      </div>
+    </div>
+    <div class="header-row shell">
+      <a class="brand" href="#today" aria-label="秤心育兒指南首頁">
+        <img src="./assets/icons/mark.svg" alt="" width="38" height="38">
+        <span>秤心育兒指南</span>
+      </a>
+      <nav class="site-nav" aria-label="主要導覽">
+        <ul>
+          <li><a href="#today">今日</a></li>
+          <li><a href="#pregnancy">孕期</a></li>
+          <li><a href="#benefits">補助</a></li>
+          <li><a href="#hospital-bag">待產包</a></li>
+          <li><a href="#costs">花費</a></li>
+          <li><a href="#sources">資料來源</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切換為倫敦藍主題">
+        <span aria-hidden="true">◐</span>
+        <span class="theme-label">倫敦藍</span>
+      </button>
+    </div>
+  </header>
+
+  <noscript>
+    <p class="no-js-note shell">JavaScript 未啟用。你仍可閱讀頁面中的基本資訊與官方來源；清單保存、篩選及試算需要啟用 JavaScript。</p>
+  </noscript>
+
+  <main id="main-content">
+    <section class="intro" id="today" aria-labelledby="today-title">
+      <div class="shell">
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <p class="eyebrow">一家四口／臺北／迎接第二個孩子</p>
+            <h1 id="today-title">把迎接她的每一步，整理得剛剛好。</h1>
+            <p class="lede">此刻先照顧重要的事：媽媽的產檢、女兒的到來，以及哥哥仍需要的日常節奏。</p>
+            <div class="intro-actions">
+              <a class="button" href="#hospital-bag">繼續整理待產包</a>
+              <a class="button-secondary" href="#benefits">查看第二胎補助</a>
+            </div>
+          </div>
+          <div class="week-register" aria-labelledby="pregnancy-progress-title">
+            <p class="data-label" id="pregnancy-progress-title">Pregnancy register</p>
+            <p class="week-number" id="current-week">32<span>週</span></p>
+            <p class="muted" id="current-week-note">以 2026-09-02 的核准家庭情境為基準</p>
+          </div>
+        </div>
+
+        <div class="family-balance" aria-label="家庭目前階段">
+          <div class="family-member">
+            <strong>媽媽</strong>
+            <span>孕期後段・優先休息與產檢</span>
+          </div>
+          <div class="family-member">
+            <strong>哥哥</strong>
+            <span>五歲以上・留意就學補助銜接</span>
+          </div>
+          <div class="family-member">
+            <strong>女兒</strong>
+            <span>第二名子女・托育方案比較中</span>
+          </div>
+        </div>
+
+        <div class="task-ledger" id="upcoming-tasks" aria-label="近期三項行動">
+          <article class="task-card">
+            <p class="data-label">01／產檢</p>
+            <h2>確認第三次超音波</h2>
+            <p>第 32 週後可依院所安排評估胎位、胎盤與羊水量。</p>
+          </article>
+          <article class="task-card">
+            <p class="data-label">02／待產</p>
+            <h2>開始整併兩個包</h2>
+            <p>先完成證件包，再處理媽媽與女兒的住院用品。</p>
+          </article>
+          <article class="task-card">
+            <p class="data-label">03／家庭</p>
+            <h2>確認哥哥照顧交接</h2>
+            <p>安排接送、過夜包與臨時住院時的聯絡順序。</p>
+          </article>
+        </div>
+
+        <details class="settings-panel">
+          <summary>更新孕週與家庭設定</summary>
+          <form class="form-grid" id="family-settings-form" novalidate>
+            <div class="field">
+              <label for="due-date">預產日期（選填）</label>
+              <input id="due-date" name="dueDate" type="date">
+              <small>有填寫時，以 40 週方式提供整理用估算。</small>
+              <p class="field-error" id="due-date-error"></p>
+            </div>
+            <div class="field">
+              <label for="reference-date">孕週基準日</label>
+              <input id="reference-date" name="referenceDate" type="date" value="2026-09-02" required>
+            </div>
+            <div class="field">
+              <label for="pregnancy-week">基準孕週</label>
+              <input id="pregnancy-week" name="pregnancyWeek" type="number" min="0" max="42" value="32" required>
+            </div>
+            <div class="field">
+              <label for="pregnancy-day">加計天數</label>
+              <select id="pregnancy-day" name="pregnancyDay">
+                <option value="0">0 天</option>
+                <option value="1">1 天</option>
+                <option value="2">2 天</option>
+                <option value="3">3 天</option>
+                <option value="4">4 天</option>
+                <option value="5">5 天</option>
+                <option value="6">6 天</option>
+              </select>
+            </div>
+            <button class="button" type="submit">保存家庭設定</button>
+          </form>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="pregnancy" aria-labelledby="pregnancy-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="section-index">I／Late pregnancy</p>
+          <div>
+            <h2 id="pregnancy-title">孕期後段，先看下一步。</h2>
+            <p class="lede">官方時程是整理起點，真正的檢查與就醫安排仍以產檢院所判斷為準。</p>
+          </div>
+        </div>
+        <div class="pregnancy-layout">
+          <div>
+            <h3>接下來的孕期節點</h3>
+            <ol class="timeline" id="pregnancy-timeline">
+              <li class="timeline-item">
+                <span class="timeline-week">第 32 週</span>
+                <div><h3>第三次一般超音波</h3><p>評估胎兒心跳、大小、胎位、胎盤位置及羊水量。</p></div>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-week">第 35–37 週</span>
+                <div><h3>產前乙型鏈球菌篩檢</h3><p>官方建議於滿 35 週至未達 38 週前接受篩檢。</p></div>
+              </li>
+            </ol>
+          </div>
+          <aside class="alert-panel" aria-labelledby="urgent-title">
+            <p class="data-label">When to call</p>
+            <h3 id="urgent-title">這些情況不要只查網站</h3>
+            <ul class="urgent-list" id="urgent-signs">
+              <li>疑似破水、陰道出血或持續子宮收縮</li>
+              <li>胎動明顯減少或和平常不同</li>
+              <li>持續腹痛、嚴重頭痛或視力改變</li>
+            </ul>
+            <p><strong>請直接聯絡產檢院所；緊急情況撥 119。</strong></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="benefits" aria-labelledby="benefits-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="section-index">II／Benefits</p>
+          <div>
+            <h2 id="benefits-title">不是只列金額，也把條件排好。</h2>
+            <p class="lede">依孩子階段、排序與照顧方式整理。標示「初步符合」仍不代表政府核定。</p>
+          </div>
+        </div>
+
+        <form class="filter-panel" id="benefit-filter-form" role="search">
+          <div class="filter-grid">
+            <div class="field">
+              <label for="benefit-query">搜尋補助或服務</label>
+              <input id="benefit-query" name="query" type="search" placeholder="例如：生育、保母、五歲">
+            </div>
+            <div class="field">
+              <label for="benefit-stage">孩子階段</label>
+              <select id="benefit-stage" name="stage">
+                <option value="all">所有階段</option>
+                <option value="pregnancy">孕期</option>
+                <option value="birth">生產</option>
+                <option value="under-2" selected>未滿二歲</option>
+                <option value="age-2-5">二至未滿五歲</option>
+                <option value="age-5">五歲至入國小前</option>
+                <option value="family">全家與租稅</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="child-order">子女排序</label>
+              <select id="child-order" name="childOrder">
+                <option value="1">第一名</option>
+                <option value="2" selected>第二名</option>
+                <option value="3">第三名以上</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="care-mode">照顧方式</label>
+              <select id="care-mode" name="careMode">
+                <option value="undecided" selected>尚未決定</option>
+                <option value="home">自行照顧</option>
+                <option value="public">公設民營托嬰中心</option>
+                <option value="community">社區公共托育家園</option>
+                <option value="quasi-public">準公共保母／托嬰中心</option>
+                <option value="non-quasi-public">非準公共保母／托嬰中心</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+        <div class="result-summary">
+          <p id="benefit-count">準備載入已查核方案</p>
+          <button class="text-button" id="reset-benefit-filters" type="button">重設篩選</button>
+        </div>
+        <div class="benefit-grid" id="benefit-results" aria-live="polite">
+          <article class="benefit-card">
+            <div class="benefit-meta"><span class="status-label" data-status="check">需要確認</span><span class="data-label">中央</span></div>
+            <h3>育有未滿二歲兒童育兒津貼</h3>
+            <p class="amount">第二名子女每月 NT$6,000</p>
+            <p>未接受公共化或準公共托育服務時，依目前設定可能適用。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hospital-bag" aria-labelledby="hospital-bag-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="section-index">III／Hospital bag</p>
+          <div>
+            <h2 id="hospital-bag-title">待產包，也包含哥哥的那一包。</h2>
+            <p class="lede">從證件到大寶交接分成六組。院所提供用品各有不同，標記項目請再向生產院所確認。</p>
+          </div>
+        </div>
+        <div class="checklist-layout">
+          <aside class="progress-block" aria-labelledby="bag-progress-title">
+            <div>
+              <p class="data-label" id="bag-progress-title">Packing progress</p>
+              <p class="progress-number" id="bag-progress-number">0／30</p>
+            </div>
+            <p id="bag-progress-message">從必帶證件開始，會比較輕鬆。</p>
+            <div class="progress-track" aria-hidden="true"><span id="bag-progress-bar"></span></div>
+            <div class="progress-actions">
+              <button class="button-secondary" id="print-checklist" type="button">列印清單</button>
+              <button class="text-button" id="clear-checklist" type="button">清除勾選</button>
+            </div>
+          </aside>
+          <div>
+            <div class="checklist-groups" id="checklist-groups"></div>
+            <form class="custom-item-form" id="custom-item-form">
+              <div class="field">
+                <label for="custom-item-title">新增自己的項目</label>
+                <input id="custom-item-title" name="title" maxlength="60" required placeholder="例如：媽媽習慣用的護唇膏">
+              </div>
+              <div class="field">
+                <label for="custom-item-category">分類</label>
+                <select id="custom-item-category" name="category">
+                  <option value="documents">證件資料</option>
+                  <option value="mom">媽媽用品</option>
+                  <option value="baby">女兒用品</option>
+                  <option value="partner">陪產用品</option>
+                  <option value="older-child">大寶交接</option>
+                  <option value="home">返家準備</option>
+                </select>
+              </div>
+              <button class="button" type="submit">加入清單</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="costs" aria-labelledby="costs-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="section-index">IV／Family ledger</p>
+          <div>
+            <h2 id="costs-title">把補助放回真實花費裡看。</h2>
+            <p class="lede">記錄每月或一次性支出。這是家庭整理用試算，不會上傳所得、帳戶或付款資料。</p>
+          </div>
+        </div>
+        <form class="cost-form-grid" id="cost-form" novalidate>
+          <div class="field">
+            <label for="cost-title">項目名稱</label>
+            <input id="cost-title" name="title" maxlength="60" required placeholder="例如：準公共保母">
+          </div>
+          <div class="field">
+            <label for="cost-child">對象</label>
+            <select id="cost-child" name="child">
+              <option value="family">全家</option>
+              <option value="older-son">哥哥</option>
+              <option value="baby-daughter">女兒</option>
+              <option value="mom">媽媽</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cost-cadence">頻率</label>
+            <select id="cost-cadence" name="cadence">
+              <option value="monthly">每月</option>
+              <option value="once">一次性</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cost-expense">支出</label>
+            <input id="cost-expense" name="expense" inputmode="numeric" min="0" type="number" required>
+          </div>
+          <div class="field">
+            <label for="cost-subsidy">實際補助</label>
+            <input id="cost-subsidy" name="subsidy" inputmode="numeric" min="0" type="number" value="0">
+          </div>
+          <button class="button" type="submit">加入花費</button>
+        </form>
+        <p class="field-error" id="cost-form-error"></p>
+        <div class="cost-layout">
+          <div>
+            <h3>已記錄項目</h3>
+            <ul class="cost-entries" id="cost-entries"><li class="muted">還沒有自訂花費，先加入一筆實際支出。</li></ul>
+          </div>
+          <aside class="cost-summary" id="cost-summary" aria-label="家庭花費摘要">
+            <div class="summary-cell"><span class="data-label">每月支出</span><strong>NT$0</strong></div>
+            <div class="summary-cell"><span class="data-label">每月補助</span><strong>NT$0</strong></div>
+            <div class="summary-cell"><span class="data-label">年化支出</span><strong>NT$0</strong></div>
+            <div class="summary-cell"><span class="data-label">年化淨支出</span><strong>NT$0</strong></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sources" aria-labelledby="sources-title">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="section-index">V／Source register</p>
+          <div>
+            <h2 id="sources-title">每個數字，都能回到原處確認。</h2>
+            <p class="lede">補助規則採官方頁面人工查核；開放資料只用於托育機構等非資格判定資訊。</p>
+          </div>
+        </div>
+        <div class="open-data-status" id="open-data-status" role="status">
+          <strong>托育開放資料：</strong>
+          <span>將於互動功能載入後確認連線狀態。</span>
+        </div>
+        <div class="source-grid" id="source-list">
+          <article class="source-card">
+            <p class="data-label">Health</p>
+            <h3><a href="https://www.hpa.gov.tw/pages/list.aspx?nodeid=194" target="_blank" rel="noopener noreferrer">孕婦產前檢查項目及補助金額</a></h3>
+            <p>衛生福利部國民健康署</p>
+            <time datetime="2026-09-03">查核 2026.09.03</time>
+          </article>
+          <article class="source-card">
+            <p class="data-label">Taipei</p>
+            <h3><a href="https://laws.gov.taipei/law/LawSearch/LawArticleContent/FL081869" target="_blank" rel="noopener noreferrer">臺北市生育獎勵金發放辦法</a></h3>
+            <p>臺北市政府</p>
+            <time datetime="2026-09-03">查核 2026.09.03</time>
+          </article>
+        </div>
+        <div class="alert-panel">
+          <h3>使用前請知道</h3>
+          <p>本站不是政府或醫療機構。補助資格、期限與金額以主管機關最新公告及審核為準；孕期不適或疑似產兆，請直接聯絡產檢院所。</p>
+          <button class="button-secondary" id="clear-all-data" type="button">清除這台裝置的本站資料</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <p><strong>秤心育兒指南</strong><br>給正在把日子一件件安頓好的家。</p>
+      <p>資料查核：2026-09-03<br>程式碼採 MIT License</p>
+    </div>
+  </footer>
+
+  <p class="sr-only" id="status-message" aria-live="polite"></p>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

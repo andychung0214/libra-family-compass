@@ -1,0 +1,198 @@
+@media (max-width: 1023px) {
+  :root {
+    --space-7: 4.5rem;
+  }
+
+  .header-row {
+    flex-wrap: wrap;
+    padding-block: var(--space-2);
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .site-nav ul {
+    min-width: max-content;
+    padding-bottom: var(--space-1);
+  }
+
+  .intro-grid,
+  .pregnancy-layout,
+  .checklist-layout,
+  .cost-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .week-register {
+    max-width: 460px;
+  }
+
+  .filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-grid .field:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .progress-block {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    align-items: center;
+  }
+
+  .progress-block .progress-track,
+  .progress-block .progress-actions {
+    grid-column: 1 / -1;
+  }
+
+  .cost-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cost-form-grid .field:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .source-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  :root {
+    --header-height: 64px;
+    --space-6: 2.7rem;
+    --space-7: 3.7rem;
+  }
+
+  body::before {
+    left: 12px;
+  }
+
+  .shell {
+    width: min(calc(100% - 2rem), var(--content-width));
+  }
+
+  .utility-strip p:last-child {
+    display: none;
+  }
+
+  .brand {
+    letter-spacing: 0.04em;
+  }
+
+  .brand img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .theme-toggle .theme-label {
+    display: none;
+  }
+
+  .intro {
+    padding-top: var(--space-6);
+  }
+
+  .intro::after {
+    top: 1.7rem;
+    right: -3.8rem;
+    width: 150px;
+  }
+
+  h1 {
+    max-width: 10ch;
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .task-ledger,
+  .benefit-grid,
+  .source-grid,
+  .form-grid,
+  .filter-grid,
+  .cost-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .filter-grid .field:first-child,
+  .cost-form-grid .field:first-child {
+    grid-column: auto;
+  }
+
+  .family-balance {
+    grid-template-columns: 1fr;
+    border-top: 0;
+    border-left: 1px solid var(--color-primary);
+    padding-left: var(--space-3);
+  }
+
+  .family-member {
+    min-height: auto;
+    border-top: 1px solid var(--color-line);
+    border-right: 0;
+    padding-block: var(--space-3);
+  }
+
+  .family-member::before {
+    top: var(--space-4);
+    left: calc(var(--space-3) * -1 - 6px);
+  }
+
+  .timeline-item {
+    grid-template-columns: 4.4rem minmax(0, 1fr);
+  }
+
+  .result-summary,
+  .site-footer .shell {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .progress-block {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-block .progress-track,
+  .progress-block .progress-actions {
+    grid-column: auto;
+  }
+
+  .custom-item-form {
+    grid-template-columns: 1fr;
+  }
+
+  .checklist-item {
+    grid-template-columns: 38px minmax(0, 1fr);
+  }
+
+  .item-flags {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+
+  .cost-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .cost-entry {
+    grid-template-columns: 1fr auto;
+  }
+
+  .cost-entry > :not(:first-child, :last-child) {
+    grid-column: 1;
+  }
+}

@@ -1,0 +1,53 @@
+:root {
+  color-scheme: light;
+  --color-primary: #722f45;
+  --color-primary-deep: #4b1d2b;
+  --color-primary-soft: #f0dfe3;
+  --color-accent: #a45f4b;
+  --color-paper: #f4f0e8;
+  --color-surface: #fffdf8;
+  --color-surface-quiet: #ebe5dc;
+  --color-ink: #252321;
+  --color-muted: #655f59;
+  --color-line: #cfc6ba;
+  --color-alert: #8d3027;
+  --color-alert-soft: #f6dfdb;
+  --color-success: #315c48;
+  --color-success-soft: #dfeae3;
+  --color-focus: #b8552f;
+  --font-display: "Yu Gothic UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-utility: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  --step--1: clamp(0.82rem, 0.79rem + 0.12vw, 0.9rem);
+  --step-0: clamp(1rem, 0.96rem + 0.16vw, 1.08rem);
+  --step-1: clamp(1.16rem, 1.05rem + 0.4vw, 1.42rem);
+  --step-2: clamp(1.42rem, 1.2rem + 0.85vw, 1.95rem);
+  --step-3: clamp(1.82rem, 1.42rem + 1.55vw, 2.8rem);
+  --step-4: clamp(2.45rem, 1.75rem + 2.7vw, 4.15rem);
+  --space-1: 0.35rem;
+  --space-2: 0.65rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.25rem;
+  --space-6: 3.5rem;
+  --space-7: 5.5rem;
+  --radius-small: 4px;
+  --radius-medium: 10px;
+  --content-width: 1180px;
+  --reading-width: 68ch;
+  --header-height: 76px;
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+}
+
+html[data-theme="london-blue"] {
+  --color-primary: #1f4b5b;
+  --color-primary-deep: #12323e;
+  --color-primary-soft: #dce9ec;
+  --color-accent: #946047;
+  --color-paper: #eef1ef;
+  --color-surface: #fbfdfb;
+  --color-surface-quiet: #e0e6e3;
+  --color-line: #becdca;
+  --color-focus: #9b512f;
+}
