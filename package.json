@@ -1,0 +1,15 @@
+{
+  "name": "libra-family-compass",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "秤心育兒指南：臺灣孕產與育兒補助決策工具",
+  "scripts": {
+    "test": "node --test",
+    "validate": "node scripts/validate-content.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
