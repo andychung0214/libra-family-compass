@@ -64,4 +64,3 @@
 - 無網路時核心靜態內容仍可閱讀；托育名單準確標示備援模式及日期。
 - `npm test`、`npm run validate` 與 `git diff --check` 全部成功。
 - GitHub Pages 的 canonical、manifest、robots、sitemap、404 與相對資源路徑齊備。
-
