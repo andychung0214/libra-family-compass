@@ -9,7 +9,13 @@ import {
   pregnancySources,
   urgentSigns,
 } from './data/pregnancy-guide.js';
+import {
+  publicChildcareFallback,
+  publicChildcareMetadata,
+  publicChildcareSource,
+} from './data/open-data-fallback.js';
 import { normaliseMoney } from './costs.js';
+import { loadOpenData } from './open-data.js';
 import { calculatePregnancyProgress } from './pregnancy.js';
 import {
   checklistProgress,
@@ -17,6 +23,7 @@ import {
   renderBenefits,
   renderChecklist,
   renderCosts,
+  renderOpenData,
   renderPregnancy,
   renderSources,
 } from './render.js';
@@ -154,6 +161,8 @@ const elements = {
   costEntries: document.querySelector('#cost-entries'),
   costSummary: document.querySelector('#cost-summary'),
   sourceList: document.querySelector('#source-list'),
+  openDataStatus: document.querySelector('#open-data-status'),
+  facilityList: document.querySelector('#facility-list'),
   clearAll: document.querySelector('#clear-all-data'),
 };
 
@@ -224,6 +233,7 @@ function renderApp(state) {
     ...pregnancySources,
     ...benefitSources,
     hospitalBagSource,
+    publicChildcareSource,
   ]);
 }
 
@@ -371,3 +381,20 @@ elements.clearAll.addEventListener('click', () => {
 
 store.subscribe(renderApp);
 renderApp(store.getState());
+
+async function initialiseOpenData() {
+  // 官方 API 的跨來源標頭不允許 GitHub Pages，因此正式版不送出請求或家庭設定。
+  const result = await loadOpenData({
+    fetchFn: window.fetch.bind(window),
+    url: '',
+    fallback: publicChildcareFallback,
+  });
+  renderOpenData(
+    elements.openDataStatus,
+    elements.facilityList,
+    result,
+    publicChildcareMetadata,
+  );
+}
+
+initialiseOpenData();

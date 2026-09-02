@@ -677,6 +677,43 @@
   padding: var(--space-3) var(--space-4);
 }
 
+.open-data-status[data-mode="live"] {
+  border-left-color: var(--color-success);
+}
+
+.facility-directory {
+  margin-bottom: var(--space-5);
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.facility-directory > summary {
+  padding-block: var(--space-3);
+  color: var(--color-primary-deep);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.facility-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--space-4);
+  margin: var(--space-3) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facility-item {
+  border-top: 1px solid var(--color-line);
+  padding-block: var(--space-3);
+}
+
+.facility-item p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--step--1);
+}
+
 .site-footer {
   border-top: 1px solid var(--color-line);
   background: var(--color-primary-deep);

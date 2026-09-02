@@ -359,3 +359,35 @@ export function renderSources(container, sources) {
     container.append(card);
   }
 }
+
+export function renderOpenData(statusElement, listElement, result, metadata) {
+  statusElement.dataset.mode = result.mode;
+  const statusText = statusElement.querySelector('span');
+  const dateLabel = result.mode === 'live' && result.fetchedAt
+    ? `載入 ${result.fetchedAt.slice(0, 10)}`
+    : `資料檔更新 ${metadata.resourceUpdatedAt}`;
+  statusText.textContent = `${result.message} ${dateLabel}；共 ${result.rows.length} 處。`;
+
+  listElement.replaceChildren();
+  for (const facility of result.rows) {
+    const item = createElement('li', { className: 'facility-item' });
+    const heading = createElement('h4', { text: facility.name });
+    const phoneDigits = facility.phone.replace(/[^\d+]/g, '');
+    const details = createElement('p');
+    details.append(
+      createElement('span', {
+        className: 'data-label',
+        text: facility.capacity == null ? '收托人數請洽機構' : `核定收托 ${facility.capacity} 人`,
+      }),
+      document.createElement('br'),
+      document.createTextNode(facility.address),
+      document.createElement('br'),
+      createElement('a', {
+        text: facility.phone,
+        attrs: { href: `tel:${phoneDigits}` },
+      }),
+    );
+    item.append(heading, details);
+    listElement.append(item);
+  }
+}

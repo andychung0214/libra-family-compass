@@ -188,6 +188,10 @@
     grid-template-columns: 1fr;
   }
 
+  .facility-list {
+    grid-template-columns: 1fr;
+  }
+
   .cost-entry {
     grid-template-columns: 1fr auto;
   }
