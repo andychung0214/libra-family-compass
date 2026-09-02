@@ -1,0 +1,19 @@
+{
+  "name": "秤心育兒指南",
+  "short_name": "秤心育兒",
+  "description": "臺灣孕產與臺北市育兒補助決策工具",
+  "lang": "zh-Hant-TW",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f1eb",
+  "theme_color": "#722f45",
+  "icons": [
+    {
+      "src": "./assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
