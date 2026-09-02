@@ -5,7 +5,10 @@ import { extname, isAbsolute, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const rootDirectory = fileURLToPath(new URL('../', import.meta.url));
-const port = 4173;
+const requestedPort = Number(process.argv[2] ?? 4173);
+const port = Number.isInteger(requestedPort) && requestedPort > 0
+  ? requestedPort
+  : 4173;
 const host = '127.0.0.1';
 
 const contentTypes = new Map([
