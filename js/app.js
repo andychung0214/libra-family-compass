@@ -2,7 +2,7 @@ import { benefits, benefitSources } from './data/benefits.js';
 import {
   hospitalBagCategories,
   hospitalBagItems,
-  hospitalBagSource,
+  hospitalBagSources,
 } from './data/hospital-bag.js';
 import {
   pregnancyMilestones,
@@ -238,7 +238,7 @@ function renderApp(state) {
   renderSources(elements.sourceList, [
     ...pregnancySources,
     ...benefitSources,
-    hospitalBagSource,
+    ...hospitalBagSources,
     publicChildcareSource,
   ]);
 }
